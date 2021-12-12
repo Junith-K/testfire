@@ -4,163 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    
-    <script type = "text/javascript" 
-         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-    </script>
+    <title>Stone-Paper-Scissor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top">
-        <div class="set">
-            <img src="rps.png" class="icon" alt="">
-            <div class="heading" >Stone Paper Scissors</div>
+    <div id="container">
+        <div id="heading"><h1>Stone-Paper-Scissor</h1></div>
+        <!-- <hr /> -->
+        <div id="rules">
+            <p>On the count of three (usually accompanied by a chant of “Rock, Paper, Scissors”), each time raising one hand in a fist and swinging it down on the count, opposing players “throw” their selection into the middle. Rock is designated by maintaining the fist, Scissors by extending the middle and index fingers, and Paper by holding the hand out flat. If players throw out the same gesture, the game goes on. If not, it’s decided by a harmonic and intransitive method — rock crushes scissors, scissors cuts paper, but paper covers rock.</p>
         </div>
+        <div id="status">
+            <div id="won" style="text-align: center;">Win: 0</div>
+            <div id="tie" style="text-align: center;">Tie: 0</div>
+            <div id="lose" style="text-align: center;">Lose: 0</div>
+            <div id="chances" style="text-align: center;">Turns left: 7</div>
+        </div>
+        <div id="movement">
+            <div id="comp"></div>
+            <div id="user"></div>
+        </div>
+        <div id="option">
+            <button id='stone'></button><button id='paper'></button><button id='scissor'></button>
+        </div>
+        <div id="move"></div>
+        <button style="cursor:pointer;display: block;font-size: 1.5vmin;" id='play_chk'>Play Again</button>
     </div>
-    <div class="mid">
-        <div class="user">
-            <div class="user-name">Junith</div>
-            <img src="roc.png" class="user-figure" id="userid" alt="">
-            <div class="user-score">0</div>
-        </div>
-        <div class="ai">
-            <div class="ai-name">AI</div>
-            <div class="rn" id="rnid">
-                <img src="roc.png" class="ai-figure" id="aiid" alt="">
-            </div>
-            <div class="ai-score">0</div>
-        </div>
-    </div>
-    <div class="choose">
-        <div>
-            <svg tabindex="1" xmlns="http://www.w3.org/2000/svg" class="rock" viewBox="0 0 50 50"><path d="M 24.066406 7.9375 C 23.152344 7.9375 22.1875 8.21875 21.390625 8.84375 C 21.050781 9.117188 20.757813 9.472656 20.523438 9.878906 C 19.777344 9.292969 18.882813 9 18.003906 9 C 17.066406 9 16.109375 9.320313 15.332031 9.976563 C 14.558594 10.628906 14.003906 11.667969 14.003906 12.902344 L 14.003906 14.699219 C 14.003906 14.722656 14.007813 14.746094 14.007813 14.769531 L 14.03125 21 C 12.332031 21.699219 10.003906 24.03125 10.003906 27.929688 C 10.003906 30.230469 10.898438 32.210938 11 32.511719 L 13.902344 38.011719 C 15.402344 41.113281 18.5 43.011719 21.902344 43.011719 L 31 43.011719 C 36 43.011719 40 39.011719 40 34.011719 L 40 16.011719 C 40 11.613281 37.5 11.011719 36 11.011719 C 35.300781 11.011719 34.5 11.109375 33.699219 11.710938 C 33 9.511719 31.398438 9.011719 30 9.011719 C 28.925781 9.011719 28.046875 9.300781 27.445313 9.78125 C 27.246094 9.460938 27.019531 9.164063 26.75 8.929688 C 25.976563 8.257813 25.007813 7.9375 24.066406 7.9375 Z M 24 10.011719 C 25.5 10.011719 26 11.210938 26 12.011719 L 26 15.011719 C 26 15.613281 26.398438 16.011719 27 16.011719 C 27.601563 16.011719 28 15.613281 28 15.011719 L 28 13.011719 C 28 12.113281 28.300781 11.011719 30 11.011719 C 31 11.011719 32 11.210938 32 14.011719 L 32 16.011719 C 32 16.613281 32.398438 17.011719 33 17.011719 C 33.601563 17.011719 34 16.613281 34 16.011719 C 34 13.410156 35 13.011719 36 13.011719 C 37 13.011719 38 13.410156 38 16.011719 L 38 34.011719 C 38 37.910156 34.898438 41.011719 31 41.011719 L 21.902344 41.011719 C 19.199219 41.011719 16.800781 39.511719 15.597656 37.109375 L 12.800781 31.511719 C 12.5 30.910156 12.003906 29.328125 12.003906 27.828125 C 12.003906 23.828125 15 22.910156 15.097656 22.910156 C 15.5 22.8125 16.003906 22.429688 16.003906 21.929688 L 15.996094 14.847656 C 16.003906 14.796875 16.007813 14.75 16.003906 14.699219 L 16.003906 12.902344 C 16.003906 12.230469 16.25 11.820313 16.625 11.5 C 17.003906 11.179688 17.542969 11 18.003906 11 C 18.46875 11 19 11.179688 19.375 11.503906 C 19.75 11.828125 20.003906 12.265625 20.003906 13 L 20.003906 14.699219 C 20 15.058594 20.191406 15.394531 20.5 15.578125 C 20.8125 15.757813 21.199219 15.757813 21.511719 15.578125 C 21.820313 15.394531 22.011719 15.058594 22.003906 14.699219 L 22.003906 11.933594 C 22.035156 11.136719 22.546875 10.011719 24 10.011719 Z"></path></svg>
-        </div>
-        <div>
-            <svg tabindex="2" xmlns="http://www.w3.org/2000/svg" class="paper" viewBox="0 0 50 50"><path d="M 26 0 C 23.539063 0 22 2.078125 22 4 L 22 4.59375 C 21.371094 4.238281 20.6875 4 20 4 C 18.125 4 16.035156 5.402344 15.90625 7.84375 C 15.90625 7.863281 15.90625 7.886719 15.90625 7.90625 L 15.90625 29.375 L 12.65625 25.46875 C 12.648438 25.449219 12.636719 25.425781 12.625 25.40625 C 10.953125 23.605469 8.085938 23.636719 6.3125 25.375 C 6.304688 25.382813 6.320313 25.398438 6.3125 25.40625 C 4.546875 27.066406 4.535156 29.855469 6.21875 31.625 L 6.28125 31.71875 L 17.8125 46.5 C 19.5 48.75 22.113281 50 24.90625 50 L 33 50 C 37.945313 50 42 45.945313 42 41 L 42 12 C 42 11.253906 41.960938 10.113281 41.4375 9.03125 C 40.914063 7.949219 39.710938 7 38 7 C 37.207031 7 36.5625 7.265625 36 7.59375 L 36 7 C 36 5.480469 35.734375 4.257813 35.03125 3.34375 C 34.328125 2.429688 33.199219 2 32 2 C 31.09375 2 30.371094 2.296875 29.75 2.6875 C 29.234375 1.238281 27.898438 0 26 0 Z M 26 2 C 27.339844 2 28 3.125 28 4 L 28 22 L 30 22 L 30 6 C 30 5.464844 30.132813 4.933594 30.40625 4.59375 C 30.679688 4.253906 31.082031 4 32 4 C 32.800781 4 33.171875 4.175781 33.46875 4.5625 C 33.765625 4.949219 34 5.71875 34 7 L 34 24 L 36 24 L 36 12 C 36 11.347656 36.066406 10.476563 36.34375 9.90625 C 36.621094 9.335938 36.910156 9 38 9 C 39.089844 9 39.378906 9.335938 39.65625 9.90625 C 39.933594 10.476563 40 11.347656 40 12 L 40 41 C 40 44.855469 36.855469 48 33 48 L 24.90625 48 C 22.699219 48 20.71875 47.0625 19.40625 45.3125 C 19.394531 45.300781 19.386719 45.292969 19.375 45.28125 L 7.78125 30.375 C 7.761719 30.34375 7.742188 30.3125 7.71875 30.28125 C 6.6875 29.25 6.699219 27.761719 7.6875 26.84375 C 7.699219 26.832031 7.707031 26.824219 7.71875 26.8125 C 8.738281 25.792969 10.203125 25.792969 11.125 26.75 C 11.136719 26.761719 11.144531 26.769531 11.15625 26.78125 L 16.125 32.75 C 16.394531 33.085938 16.847656 33.214844 17.253906 33.066406 C 17.65625 32.914063 17.921875 32.523438 17.90625 32.09375 L 17.90625 7.90625 C 17.996094 6.570313 19.085938 6 20 6 C 20.460938 6 21 6.175781 21.375 6.5 C 21.75 6.824219 22 7.265625 22 8 L 22 23 L 24 23 L 24 4 C 24 3.125 24.660156 2 26 2 Z"></path></svg>
-        </div>
-        <div>
-            <svg tabindex="3" xmlns="http://www.w3.org/2000/svg" class="scissors" viewBox="0 0 50 50"><path d="M 43.517578 9.9492188 C 43.200619 9.9457426 42.869832 9.9751535 42.529297 10.037109 A 1.0001 1.0001 0 0 0 42.462891 10.050781 L 23.458984 14.851562 C 23.394036 14.724175 23.351074 14.604343 23.273438 14.474609 C 22.475438 13.141132 20.899549 11.678123 18.230469 11.210938 C 17.2622 11.041317 16.313254 11.050925 15.494141 11.136719 C 14.678334 11.222169 13.993547 11.382813 13.546875 11.515625 L 4.7460938 14.060547 C 1.5402754 14.988323 -5.9211895e-16 18.400273 0 21.480469 L 0 34 C 0 38.958516 4.0414839 43 9 43 L 20 43 C 23.794424 43 26.599112 41.41301 27.271484 41 L 30 41 C 32.197334 41 34 39.197334 34 37 C 34 36.251892 33.778359 35.558078 33.416016 34.957031 C 35.383162 34.747776 36.937199 33.111076 36.990234 31.103516 L 45.900391 31.994141 A 1.0001 1.0001 0 0 0 46 32 C 47.223833 32 48.287931 31.557113 48.986328 30.798828 C 49.684725 30.040543 50 29.029667 50 28 C 50 26.928491 49.567156 25.956102 48.859375 25.285156 C 48.151594 24.614211 47.221147 24.222565 46.193359 24.019531 A 1.0001 1.0001 0 0 0 46.15625 24.011719 L 31.380859 21.679688 L 43.251953 17.96875 C 44.380177 17.674848 45.299954 17.199325 45.960938 16.517578 C 46.62192 15.835831 46.985939 14.936289 47 14.015625 A 1.0001 1.0001 0 0 0 47 14.001953 L 47 13.576172 C 47.012756 12.565924 46.688726 11.523998 45.892578 10.800781 C 45.295467 10.258368 44.468455 9.9596473 43.517578 9.9492188 z M 43.501953 11.943359 C 44.03098 11.937893 44.338446 12.090142 44.548828 12.28125 C 44.83068 12.537283 45.007244 12.977029 45 13.550781 A 1.0001 1.0001 0 0 0 45 13.5625 L 45 13.986328 C 44.9931 14.440664 44.857205 14.780747 44.523438 15.125 C 44.18967 15.469253 43.619823 15.806106 42.748047 16.033203 A 1.0001 1.0001 0 0 0 42.701172 16.046875 L 26.798828 21.015625 A 1.0001 1.0001 0 0 0 26.273438 21.296875 A 1.0001 1.0001 0 0 0 26.146484 21.451172 A 1.0001 1.0001 0 0 0 26.095703 21.537109 A 1.0001 1.0001 0 0 0 26.066406 21.597656 A 1.0001 1.0001 0 0 0 26.044922 21.648438 A 1.0001 1.0001 0 0 0 26.037109 21.671875 A 1.0001 1.0001 0 0 0 26.011719 21.753906 A 1.0001 1.0001 0 0 0 26.960938 23.005859 L 45.8125 25.984375 C 46.572361 26.135732 47.141455 26.411255 47.484375 26.736328 C 47.828594 27.062633 48 27.414509 48 28 C 48 28.627333 47.815275 29.115894 47.513672 29.443359 C 47.213692 29.769062 46.776173 29.99365 46.007812 29.996094 L 36.462891 29.042969 C 35.77267 27.832156 34.484066 27 33 27 L 25.453125 27 L 24.169922 17.076172 C 24.169922 17.076172 24.152494 16.939301 24.119141 16.746094 L 42.894531 12.005859 C 43.124753 11.964617 43.325611 11.945182 43.501953 11.943359 z M 16.775391 13.089844 C 17.149145 13.092021 17.5269 13.11895 17.884766 13.181641 C 20.014686 13.554454 20.99739 14.56743 21.556641 15.501953 C 22.115892 16.436476 22.175781 17.228516 22.175781 17.228516 A 1.0001 1.0001 0 0 0 22.179688 17.279297 L 23.667969 28.78125 A 1.0001 1.0001 0 0 0 23.685547 28.884766 C 24.008326 30.240005 23.188424 31.573724 21.833984 31.896484 C 21.096646 32.072097 20.533378 31.987054 20.048828 31.697266 C 19.56586 31.408419 19.118765 30.867449 18.796875 29.951172 L 16.539062 21.224609 A 1.0001 1.0001 0 0 0 15.091797 20.597656 L 12.167969 22.191406 A 1.0001 1.0001 0 1 0 13.125 23.947266 L 14.925781 22.966797 L 14.986328 23.199219 C 14.710568 23.703786 12.676145 27.165074 7.828125 28.009766 A 1.0002293 1.0002293 0 1 0 8.171875 29.980469 C 11.914006 29.328461 14.313161 27.230365 15.628906 25.683594 L 16.880859 30.527344 A 1.0001 1.0001 0 0 0 16.904297 30.605469 C 17.341186 31.855696 18.059988 32.837856 19.023438 33.414062 C 19.472637 33.682714 19.967878 33.843735 20.482422 33.921875 C 19.586465 34.657459 19 35.759317 19 37 C 19 38.813192 20.234624 40.339625 21.898438 40.824219 C 21.298248 40.924582 20.671226 41 20 41 L 9 41 C 5.1225161 41 2 37.877484 2 34 L 2 21.480469 C 2 19.076665 3.2425528 16.578646 5.3027344 15.982422 L 14.103516 13.4375 A 1.0001 1.0001 0 0 0 14.111328 13.433594 C 14.563535 13.298778 15.654126 13.083312 16.775391 13.089844 z M 25.707031 29 L 33 29 C 34.116666 29 35 29.883334 35 31 C 35 32.116666 34.116666 33 33 33 L 30 33 L 29 33 L 24.015625 33 C 25.207134 32.062684 25.868073 30.560077 25.707031 29 z M 23 35 L 29 35 L 30 35 C 31.116666 35 32 35.883334 32 37 C 32 38.116666 31.116666 39 30 39 L 27.132812 39 A 1.0001 1.0001 0 0 0 26.882812 39 L 23 39 C 21.883334 39 21 38.116666 21 37 C 21 35.883334 21.883334 35 23 35 z"></path></svg>
-        </div>
-    </div>
-    <div class="play">
-        <div class="play-g" onclick="">Play</div>
-    </div>
-    <script type = "text/javascript" language = "javascript">
-        var user="";
-        var user_cnt=0, ai_cnt=0;
-        const choice = ["rock", "paper", "scissors"];
-        var random_num;
-        var ai;
-        ai = choice[random_num];
-        $(".rock").bind('click', function(event){
-            user = "rock";            
-        });
-        $(".paper").bind('click', function(event){
-            user = "paper";            
-        });
-        $(".scissors").bind('click', function(event){
-            user = "scissors";                      
-        });
-        var cnt=0;
-        
-        
-        $(".play-g").bind('click', function(){
-            if($(".play-g").css("cursor")=="pointer" && user!=""){
-                random_num = Math.floor(Math.random()*3);
-                ai = choice[random_num];
-
-                $(".play-g").css("cursor", "not-allowed");
-
-                if($("#userid").attr("user-figure")){
-                    $("#userid").attr("class","user-ani user-figure");
-                    $(".rn").attr("class","ai-ani rn");
-                }
-                else{
-                    $("#userid").attr("class","user-ani user-figure-sci");
-                    $(".rn").attr("class","ai-ani rn");
-                }
-
-                if($("#aiid").attr("ai-figure")){
-                    $("#userid").attr("class","user-ani user-figure");
-                    $(".rn").attr("class","ai-ani rn");
-                }
-                else{
-                    $("#userid").attr("class","user-ani user-figure-sci");
-                    $(".rn").attr("class","ai-ani rn-sci");
-                }
-
-                
-                setTimeout(function(){ 
-                    
-                    $("#userid").attr("class","user-figure");
-                    $("#rnid").attr("class","rn"); 
-
-                    if(user=="paper"){ 
-                        $("#userid").attr("src", "pap.png");
-                    }
-                    else if(user=="rock"){
-                        $("#userid").attr("src", "roc.png");
-                    }
-                    else{
-                        $("#userid").attr("src", "sci.png");
-                        $("#userid").attr("class", "user-figure-sci")
-                    }
-                    if(ai=="paper"){ 
-                        $("#aiid").attr("src", "pap.png");
-                    }
-                    else if(ai=="rock"){
-                        $("#aiid").attr("src", "roc.png");
-                    }
-                    else{
-                        $("#aiid").attr("src", "sci.png");
-                        $("#aiid").attr("class", "ai-figure-sci");
-                        $(".rn").attr("class", "rn-sci");
-                    }
-
-                    setTimeout(function(){
-                        $("#aiid").attr("src", "roc.png");
-                        $("#userid").attr("src", "roc.png");
-                        $("#userid").attr("class", "user-figure");
-                        $("#userid").attr("class", "user-figure");
-                        $("#rnid").attr("class", "rn");
-                        $(".play-g").css("cursor", "pointer");
-                
-                        if(user==ai){
-
-                        }
-                        else if((user=="rock" && ai=="paper")||(user=="paper" && ai=="scissors")||(user=="scissors" && ai=="rock")){
-                            ai_cnt = ai_cnt+1;
-                        }
-                        else{
-                            user_cnt = user_cnt+1;
-                        }
-                        $(".user-score").text(user_cnt);
-                        $(".ai-score").text(ai_cnt);
-                        user="";
-                        ai="";
-
-                    }, 3000);
-                }, 3000);
-
-                
-
-                
-
-
-
-            }
-            else{
-                alert("Please choose your option");
-            }
-            
-        });
-        
-
-        
-    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDjH6t96LbOciQar8SJt0VqObpHze1bqcI",
+          authDomain: "rock-e6c96.firebaseapp.com",
+          projectId: "rock-e6c96",
+          storageBucket: "rock-e6c96.appspot.com",
+          messagingSenderId: "888725258808",
+          appId: "1:888725258808:web:d7ff3696728a1ae719dccd",
+          measurementId: "G-G0HB7C6HD5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
 </body>
+<script src="./move.js"></script>
 </html>
